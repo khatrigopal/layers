@@ -1,11 +1,3 @@
-resource "aws_lambda_layer" "my_layer" {
-  name        = var.layer_name
-  description = var.layer_description
-
-  s3_bucket = var.s3_key
-  s3_key    = var.layer_code_key
-}
-
 resource "aws_lambda_layer_version" "my_layer_version" {
   layer_name = aws_lambda_layer.my_layer.name
   description = var.layer_description
