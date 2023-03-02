@@ -74,12 +74,12 @@ variable "layer_description" {
   default = "My Lambda layer"
 }
 
-variable "layer_bucket" {
+variable "s3_bucket" {
   type    = string
   default = ""
 }
 
-variable "layer_key" {
+variable "s3_key" {
   type    = string
   default = ""
 }
