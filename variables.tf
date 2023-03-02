@@ -77,5 +77,5 @@ variable "s3_bucket" {
 
 variable "layer_code_key" {
   type    = string
-  default = ""
+ 
 }
