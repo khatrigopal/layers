@@ -10,8 +10,10 @@ variable "layer_description" {
 
 variable "layer_bucket" {
   type    = string
+  default = ""
 }
 
 variable "layer_key" {
   type    = string
+  default = ""
 }
