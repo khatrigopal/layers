@@ -64,10 +64,6 @@ variable "test_name" {
 
 #####
 
-variable "layer_name" {
-  type    = string
-  default = "my-layer"
-}
 
 variable "layer_description" {
   type    = string
