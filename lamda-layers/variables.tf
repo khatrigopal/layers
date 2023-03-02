@@ -1,20 +1,8 @@
-variable "function_names" {
-  type    = list(string)
-}
-
-variable "function_runtimes" {
-  type    = list(string)
-}
-
-variable "function_code_s3_bucket" {
-  type    = string
-}
-
-variable "function_code_s3_key" {
-  type    = string
-}
-
-variable "function_layers" {
-  type    = list(list(string))
-  default = []
+variable "layers" {
+  type = list(object({
+    layer_name         = string
+    compatible_runtimes = list(string)
+    s3_bucket          = string
+    s3_key             = string
+  }))
 }
