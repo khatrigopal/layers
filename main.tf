@@ -1,16 +1,26 @@
-module "lambda_layers_module" {
-  source = "./lambda-layers-module"
+module "lambda_layers" {
+  source = "./lambda-layers"
 
-  lambda_layers = [
+  layers = [
     {
-      name = "my-layer-1"
-      s3_bucket = "bskhatrig-testingt"
-      s3_key = "my-layer-1.zip"
+      layer_name         = "my_layer_1"
+      compatible_runtimes = ["nodejs12.x"]
+      s3_bucket          = "my-bucket"
+      s3_key             = "layers/my_layer_1.zip"
     },
     {
-      name = "my-layer-2"
-      s3_bucket = "bskhatrig-testing"
-      s3_key = "my-layer-2.zip"
+      layer_name         = "my_layer_2"
+      compatible_runtimes = ["nodejs12.x", "python3.8"]
+      s3_bucket          = "my-bucket"
+      s3_key             = "layers/my_layer_2.zip"
     }
   ]
+}
+
+output "layer_1_arn" {
+  value = module.lambda_layers.layers[0].arn
+}
+
+output "layer_2_arn" {
+  value = module.lambda_layers.layers[1].arn
 }
