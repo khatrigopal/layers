@@ -1,5 +1,5 @@
 resource "aws_lambda_layer_version" "my_layer_version" {
-  layer_name = aws_lambda_layer.my_layer.name
+  layer_name = var.layer_name
   description = var.layer_description
   source_code_hash = filebase64(var.layer_code_path)
 
