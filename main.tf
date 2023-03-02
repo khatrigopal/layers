@@ -1,6 +1,7 @@
 module "lambda_layers" {
   source = "./lambda-layers"
 
+  
   layers = [
     {
       layer_name         = "my_layer_1"
