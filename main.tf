@@ -13,6 +13,6 @@ module "layer_2" {
   
   layer_name        = "my-layer-2"
   layer_description = "My second Lambda layer"
-  layer_bucket      = "bskhatrig-testingt"
+  layer_bucket      = "bskhatrig-testing"
   layer_key         = "my-layer-2.zip"
 }
