@@ -1,18 +1,27 @@
 
-module "layer_1" {
+module "lambda_layers" {
   source = "./lambda-layers"
 
-  layer_name        = "my-layer-1"
-  layer_description = "My first Lambda layer"
-  layer_bucket      = "my-s3-bucket"
-  layer_key         = "layers/my-layer-1.zip"
+  layers = [
+    {
+      layer_name         = "my_layer_1"
+      compatible_runtimes = ["nodejs12.x"]
+      s3_bucket          = "my-bucket"
+      s3_key             = "layers/my_layer_1.zip"
+    },
+    {
+      layer_name         = "my_layer_2"
+      compatible_runtimes = ["nodejs12.x", "python3.8"]
+      s3_bucket          = "my-bucket"
+      s3_key             = "layers/my_layer_2.zip"
+    }
+  ]
 }
 
-module "layer_2" {
-  source = "./lambda-layers"
-  
-  layer_name        = "my-layer-2"
-  layer_description = "My second Lambda layer"
-  layer_bucket      = "my-s3-bucket"
-  layer_key         = "layers/my-layer-2.zip"
+output "layer_1_arn" {
+  value = module.lambda_layers.layers[0].arn
+}
+
+output "layer_2_arn" {
+  value = module.lambda_layers.layers[1].arn
 }
