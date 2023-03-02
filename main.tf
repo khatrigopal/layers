@@ -1,27 +1,23 @@
-
-module "lambda_layers" {
-  source = "./lambda-layers"
-
-  layers = [
-    {
-      layer_name         = "my_layer_1"
-      compatible_runtimes = ["nodejs12.x"]
-      s3_bucket          = "bskhatrig-testing"
-      s3_key             = "layers/my_layer_1.zip"
-    },
-    {
-      layer_name         = "my_layer_2"
-      compatible_runtimes = ["nodejs12.x", "python3.8"]
-      s3_bucket          = "bskhatrig-testing"
-      s3_key             = "layers/my_layer_2.zip"
-    }
-  ]
+module "layer1" {
+  source  = "./modules/lambda-layer"
+  layer_name = "my-layer-1"
+  layer_description = "This is my first Lambda layer"
+  layer_code_key = "my-layer-1.zip"
+  layer_code_path = "./layers/my-layer-1.zip"
 }
 
-output "layer_1_arn" {
-  value = module.lambda_layers.layers[0].arn
+module "layer2" {
+  source  = "./modules/lambda-layer"
+  layer_name = "my-layer-2"
+  layer_description = "This is my second Lambda layer"
+  layer_code_key = "my-layer-2.zip"
+  layer_code_path = "./layers/my-layer-2.zip"
 }
 
-output "layer_2_arn" {
-  value = module.lambda_layers.layers[1].arn
+module "layer3" {
+  source  = "./modules/lambda-layer"
+  layer_name = "my-layer-3"
+  layer_description = "This is my third Lambda layer"
+  layer_code_key = "my-layer-3.zip"
+  layer_code_path = "./layers/my-layer-3.zip"
 }
