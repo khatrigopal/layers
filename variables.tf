@@ -64,11 +64,22 @@ variable "test_name" {
 
 #####
 
-variable "layers" {
-  type = list(object({
-    layer_name         = string
-    compatible_runtimes = list(string)
-    s3_bucket          = string
-    s3_key             = string
-  }))
+variable "layer_name" {
+  type    = string
+  default = "my-layer"
+}
+
+variable "layer_description" {
+  type    = string
+  default = "My Lambda layer"
+}
+
+variable "layer_bucket" {
+  type    = string
+  default = ""
+}
+
+variable "layer_key" {
+  type    = string
+  default = ""
 }
