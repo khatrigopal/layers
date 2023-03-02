@@ -14,9 +14,7 @@ variable "layer_code_path" {
   type = string
 }
 
-variable "layer_code_path" {
-  type = string
-}
+
 
 variable "s3_bucket" {
   type = string
